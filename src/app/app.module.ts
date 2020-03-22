@@ -8,7 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
+import { ProductColorListComponent } from './product-color-list/product-color-list.component';
+import { ProductColorComponent } from './product-color/product-color.component';
+import { ProductComponent } from './product/product.component';
 // import { MatSliderModule } from '@angular/material/slider';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,9 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
     ProductListComponent,
     TopBarComponent,
     ProductAlertsComponent,
+    ProductColorListComponent,
+    ProductColorComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,8 +31,10 @@ import { ProductAlertsComponent } from './product-alerts/product-alerts.componen
     BrowserAnimationsModule,
     // MatSliderModule
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-    ])
+      {path: '', component: ProductListComponent},
+    ]),
+    FlexLayoutModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

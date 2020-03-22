@@ -1,0 +1,8 @@
+.mat-chip.mat-standard-chip {
+  border: 2px solid darkslategrey;
+}
+
+.mat-chip.mat-standard-chip:focus {
+  border: 2px solid darkslategrey;
+  box-shadow: 0 0 5px 2px rgba(114, 114, 114, 0.91);
+}

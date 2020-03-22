@@ -1,17 +1,26 @@
-export const products = [
+import {ProductModel} from './core/models/Product';
+import {AvailableColors} from './core/models/AvailableColors';
+
+export const products: ProductModel[] = [
   {
-    name: 'Phone XL',
-    price: 799,
-    description: 'A large phone with one of the best screens'
+    Name: 'Phone XL',
+    Description: 'A large phone with one of the best screens',
+    Count: 3,
+    Price: '799',
+    Colors: [AvailableColors.Red, AvailableColors.Green, AvailableColors.Black]
   },
   {
-    name: 'Phone Mini',
-    price: 699,
-    description: 'A great phone with one of the best cameras'
+    Name: 'Phone Mini',
+    Description: 'A great phone with one of the best cameras',
+    Count: 3,
+    Price: '699',
+    Colors: [AvailableColors.Red, AvailableColors.White]
   },
   {
-    name: 'Phone Standard',
-    price: 299,
-    description: ''
+    Name: 'Phone Standard',
+    Description: 'Description of phone',
+    Count: 3,
+    Price: '299',
+    Colors: [AvailableColors.Green, AvailableColors.Yellow]
   }
 ];

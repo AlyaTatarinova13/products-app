@@ -1,0 +1,16 @@
+<div class="product">  <!--   fxLayout="column" fxLayoutAlign="center flex-start" -->
+  <div>
+    <h3><a [title]="product.Name + ' details'">{{ product.Name }}</a></h3>
+  </div>
+  <div *ngIf="product.Description">
+    <p>
+      Description: {{ product.Description }}
+    </p>
+  </div>
+  <div *ngIf="product.Price" fxLayout="row" fxLayoutAlign="space-between center"> <!--   -->
+    <p> Price: {{ product.Price }}</p>
+    <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+  </div>
+    <app-product-color-list [productColors]="product.Colors"></app-product-color-list>
+  <button (click)="share()"> Share</button>
+</div>
