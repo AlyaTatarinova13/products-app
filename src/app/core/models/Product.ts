@@ -1,16 +1,14 @@
-export interface ProductModel{
-  Name: string;
-  Description: string;
-  Count: number;
-  Price: string;
-  Colors: string[];
+import {AvailableColors} from './AvailableColors';
+
+export interface ProductModel {
+  name: string;
+  description: string;
+  count: number;
+  price: string;
+  colorModels: ColorModel[];
 }
 
-// export class Product {
-//   constructor() {
-//
-//   }
-// }
-
-// export class ProductModel {
-// }
+export interface ColorModel {
+  color: AvailableColors;
+  count: number;
+}

@@ -3,24 +3,30 @@ import {AvailableColors} from './core/models/AvailableColors';
 
 export const products: ProductModel[] = [
   {
-    Name: 'Phone XL',
-    Description: 'A large phone with one of the best screens',
-    Count: 3,
-    Price: '799',
-    Colors: [AvailableColors.Red, AvailableColors.Green, AvailableColors.Black]
+    name: 'Phone XL',
+    description: 'A large phone with one of the best screens',
+    count: null,
+    price: '799',
+    // colors: [AvailableColors.Red, AvailableColors.Green, AvailableColors.Black],
+    colorModels: [{color: AvailableColors.Yellow, count: 0}, {color: AvailableColors.Green, count: 3}]
   },
   {
-    Name: 'Phone Mini',
-    Description: 'A great phone with one of the best cameras',
-    Count: 3,
-    Price: '699',
-    Colors: [AvailableColors.Red, AvailableColors.White]
+    name: 'Phone Mini',
+    description: 'A great phone with one of the best cameras',
+    count: null,
+    price: '699',
+    // colors: [AvailableColors.Red, AvailableColors.White],
+    colorModels: [{color: AvailableColors.Black, count: 1}, {color: AvailableColors.White, count: 3}, {
+      color: AvailableColors.Green,
+      count: 5
+    }]
   },
   {
-    Name: 'Phone Standard',
-    Description: 'Description of phone',
-    Count: 3,
-    Price: '299',
-    Colors: [AvailableColors.Green, AvailableColors.Yellow]
+    name: 'Phone Standard',
+    description: 'Description of phone',
+    count: null,
+    price: '299',
+    // colors: [AvailableColors.Green, AvailableColors.Yellow],
+    colorModels: [{color: AvailableColors.Black, count: 2}]
   }
 ];

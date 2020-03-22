@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-// import { products } from '../products';
+import {ProductModel} from '../core/models/Product';
 
 @Component({
   selector: 'app-product',
@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-  @Input() product;
+  @Input() product: ProductModel;
   constructor() { }
 
   share() {
@@ -19,6 +19,16 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    for (let i = 0; i < this.product.colorModels.length; i++) {
+      this.product.count += this.product.colorModels[i].count;
+    }
   }
 
+  recalculate(e) {
+    if (e) {
+      this.product.count++;
+    } else {
+      this.product.count--;
+    }
+  }
 }

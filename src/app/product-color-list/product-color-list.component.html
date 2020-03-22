@@ -1,11 +1,5 @@
-<div class="colorsProduct" fxLayout="row">
-<!--  <mat-chip-list aria-label="Fish selection">-->
-<!--    <mat-chip>One fish</mat-chip>-->
-<!--    <mat-chip>Two fish</mat-chip>-->
-<!--    <mat-chip color="primary" selected>Primary fish</mat-chip>-->
-<!--    <mat-chip color="accent" selected>Accent fish</mat-chip>-->
-<!--  </mat-chip-list>-->
+<div class="colorsProduct" fxLayout="row" fxLayoutAlign="space-around center">
   <mat-chip-list aria-label="Fish selection" *ngFor="let color of productColors">
-    <app-product-color [colorProduct] = "color"></app-product-color>
+    <app-product-color-item [productColorItem]="color" (changeCount)="recalculateProductModelCount($event)"></app-product-color-item>
   </mat-chip-list>
 </div>

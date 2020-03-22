@@ -9,11 +9,10 @@ import {RouterModule} from '@angular/router';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductColorListComponent } from './product-color-list/product-color-list.component';
-import { ProductColorComponent } from './product-color/product-color.component';
 import { ProductComponent } from './product/product.component';
-// import { MatSliderModule } from '@angular/material/slider';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatChipsModule} from '@angular/material/chips';
+import { ProductColorItemComponent } from './product-color-item/product-color-item.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,8 @@ import {MatChipsModule} from '@angular/material/chips';
     TopBarComponent,
     ProductAlertsComponent,
     ProductColorListComponent,
-    ProductColorComponent,
     ProductComponent,
+    ProductColorItemComponent,
   ],
   imports: [
     BrowserModule,

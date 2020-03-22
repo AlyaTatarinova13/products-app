@@ -1,16 +1,19 @@
 <div class="product">  <!--   fxLayout="column" fxLayoutAlign="center flex-start" -->
   <div>
-    <h3><a [title]="product.Name + ' details'">{{ product.Name }}</a></h3>
+    <h3><a [title]="product.name + ' details'">{{ product.name }}</a></h3>
   </div>
-  <div *ngIf="product.Description">
+  <div *ngIf="product.description">
     <p>
-      Description: {{ product.Description }}
+      Description: {{ product.description }}
     </p>
   </div>
-  <div *ngIf="product.Price" fxLayout="row" fxLayoutAlign="space-between center"> <!--   -->
-    <p> Price: {{ product.Price }}</p>
+  <div *ngIf="product.price" fxLayout="row" fxLayoutAlign="space-between center"> <!--   -->
+    <p> Price: {{ product.price }}</p>
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
   </div>
-    <app-product-color-list [productColors]="product.Colors"></app-product-color-list>
+  <div>
+    <p>Count: {{product.count}}</p>
+  </div>
+    <app-product-color-list [productColors]="product.colorModels" (changeCount)="recalculate($event)"></app-product-color-list>
   <button (click)="share()"> Share</button>
 </div>

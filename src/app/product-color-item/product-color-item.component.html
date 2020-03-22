@@ -1,0 +1,8 @@
+<div class="details" fxLayout="column" fxLayoutAlign="center center">
+  <mat-chip [ngStyle]="{'background-color': getColor()}"></mat-chip>
+  <h2>{{productColorItem.count}}</h2>
+  <div fxLayout="row">
+    <button (click)="onClickPlus()">+</button>
+    <button (click)="onClickMinus()">-</button>
+  </div>
+</div>
