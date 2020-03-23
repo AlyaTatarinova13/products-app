@@ -1,6 +1,11 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ColorModel} from '../core/models/Product';
 
+export enum ValueChangeCount {
+  Plus = 'PLUS',
+  Minus = 'MINUS'
+}
+
 @Component({
   selector: 'app-product-color-item',
   templateUrl: './product-color-item.component.html',
@@ -11,7 +16,7 @@ export class ProductColorItemComponent implements OnInit {
   @Input()
   productColorItem: ColorModel;
 
-  @Output() changeCount = new EventEmitter<boolean>();
+  @Output() changeCount = new EventEmitter<ValueChangeCount>();
 
   constructor() { }
 
@@ -19,13 +24,13 @@ export class ProductColorItemComponent implements OnInit {
   }
 
   onClickPlus() {
-    this.changeCount.emit(true);
+    this.changeCount.emit(ValueChangeCount.Plus);
     this.productColorItem.count++;
   }
 
   onClickMinus() {
     if (this.productColorItem.count > 0) {
-      this.changeCount.emit(false);
+      this.changeCount.emit(ValueChangeCount.Minus);
       this.productColorItem.count--;
     }
   }

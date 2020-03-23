@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductModel} from '../core/models/Product';
+import {ValueChangeCount} from '../product-color-item/product-color-item.component';
 
 @Component({
   selector: 'app-product',
@@ -25,7 +26,7 @@ export class ProductComponent implements OnInit {
   }
 
   recalculate(e) {
-    if (e) {
+    if (e === ValueChangeCount.Plus) {
       this.product.count++;
     } else {
       this.product.count--;

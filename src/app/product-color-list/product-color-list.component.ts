@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ColorModel} from '../core/models/Product';
+import {ValueChangeCount} from '../product-color-item/product-color-item.component';
 
 @Component({
   selector: 'app-product-color-list',
@@ -7,10 +8,8 @@ import {ColorModel} from '../core/models/Product';
   styleUrls: ['./product-color-list.component.scss']
 })
 export class ProductColorListComponent implements OnInit {
-  // @Input() colors = Colors;
-  public count = 0;
   @Input() productColors: ColorModel[];
-  @Output() changeCount = new EventEmitter<boolean>();
+  @Output() changeCount = new EventEmitter<ValueChangeCount>();
 
   constructor() {
   }
