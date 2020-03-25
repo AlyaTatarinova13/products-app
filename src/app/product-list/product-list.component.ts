@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { products } from '../products';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -8,19 +8,18 @@ import { products } from '../products';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products = products;
+  // products = products;
+  products;
 
-  share() {
-    window.alert('The product has been shared!');
+  constructor(private route: ActivatedRoute) {
   }
-
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
-  }
-
-  constructor() { }
 
   ngOnInit(): void {
+    this.route.data
+      .subscribe(
+        (products ) => {
+          this.products = products.productList;
+        }
+      );
   }
-
 }

@@ -1,0 +1,17 @@
+<div class="product">
+  <div>
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+      {{ product.name }}
+    </a>
+  </div>
+  <div *ngIf="product.description">
+    <p>
+      Description: {{ product.description }}
+    </p>
+  </div>
+  <div *ngIf="product.price"> <!--   -->
+    <p> Price: {{ product.price }}</p>
+    <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+  </div>
+  <button (click)="share()"> Share</button>
+</div>
