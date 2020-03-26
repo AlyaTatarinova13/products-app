@@ -5,7 +5,7 @@ export interface ProductModel {
   name: string;
   description: string;
   count: number;
-  price: string;
+  price: number;
   colorModels: ColorModel[];
 }
 

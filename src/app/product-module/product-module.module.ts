@@ -15,11 +15,11 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ProductColorItemComponent} from '../product-color-item/product-color-item.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
-export class ProductListResolver implements Resolve<ProductModel> {
+export class ProductListResolver implements Resolve<ProductModel[]> {
   constructor() {
   }
 
-  resolve(): Observable<any> {
+  resolve(): Observable<ProductModel[]> {
     return of(products);
   }
 }
@@ -29,7 +29,7 @@ export class ProductResolver implements Resolve<ProductModel> {
   constructor(private productService: ProductService) {
   }
 
-  resolve(): Observable<any> {
+  resolve(): Observable<ProductModel> {
     return of(this.productService.getProduct(+['id']));
   }
 }

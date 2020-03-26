@@ -1,6 +1,7 @@
 import {AvailableColors} from '../models/AvailableColors';
+import {ProductModel} from '../models/Product';
 
-export const products = [
+export const products: ProductModel[] = [
   {
     id: 1,
     name: 'Phone XL',
