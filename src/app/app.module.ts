@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FlexLayoutModule} from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,8 +18,8 @@ import {ProductModuleModule} from './product-module/product-module.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
-    ProductModuleModule
+    ProductModuleModule,
+
   ],
   providers: [],
   exports: [],

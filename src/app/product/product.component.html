@@ -9,9 +9,15 @@
       Description: {{ product.description }}
     </p>
   </div>
-  <div *ngIf="product.price">
+  <div *ngIf="product.price"  fxLayout="row" fxLayoutAlign="space-between center">
     <p> Price: {{ product.price }}</p>
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
   </div>
-  <button (click)="share()"> Share</button>
+  <div>
+    <p>Count: {{product.count}}</p>
+  </div>
+  <app-product-color-list [productColors]="product.colorModels" (changeCount)="recalculate($event)"></app-product-color-list>
+  <div class="button" fxLayoutAlign="center center">
+    <button (click)="share()"> Share</button>
+  </div>
 </div>

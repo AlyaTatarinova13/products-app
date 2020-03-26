@@ -10,6 +10,10 @@ import {ProductModel} from '../core/models/Product';
 import {products} from '../core/fakeBackend/products';
 import {ProductComponent} from '../product/product.component';
 import {ProductService} from '../core/services/ProductService';
+import {ProductColorListComponent} from '../product-color-list/product-color-list.component';
+import {MatChipsModule} from '@angular/material/chips';
+import {ProductColorItemComponent} from '../product-color-item/product-color-item.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 export class ProductListResolver implements Resolve<ProductModel> {
   constructor() {
@@ -43,6 +47,9 @@ const productRoutes: Routes = [
     ProductAlertsComponent,
     ProductDetailsComponent,
     ProductComponent,
+    ProductColorListComponent,
+    ProductColorListComponent,
+    ProductColorItemComponent
   ],
   exports: [
     ProductAlertsComponent,
@@ -53,6 +60,8 @@ const productRoutes: Routes = [
       productRoutes
     ),
     CommonModule,
+    MatChipsModule,
+    FlexLayoutModule
   ],
   providers: [ProductService]
 })

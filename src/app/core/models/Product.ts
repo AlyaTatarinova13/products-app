@@ -1,14 +1,15 @@
+import {AvailableColors} from './AvailableColors';
+
 export interface ProductModel {
   id: number;
   name: string;
   description: string;
-  // count: number;
+  count: number;
   price: string;
-
-  // colorModels: ColorModel[];
+  colorModels: ColorModel[];
 }
 
-// export interface ColorModel {
-//   color: AvailableColors;
-//   count: number;
-// }
+export interface ColorModel {
+  color: AvailableColors;
+  count: number;
+}
