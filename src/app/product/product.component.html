@@ -9,7 +9,7 @@
       Description: {{ product.description }}
     </p>
   </div>
-  <div *ngIf="product.price"> <!--   -->
+  <div *ngIf="product.price">
     <p> Price: {{ product.price }}</p>
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
   </div>

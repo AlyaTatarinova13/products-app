@@ -1,8 +1,10 @@
 export interface ProductModel {
+  id: number;
   name: string;
   description: string;
-  count: number;
+  // count: number;
   price: string;
+
   // colorModels: ColorModel[];
 }
 
