@@ -9,11 +9,14 @@ import {of} from 'rxjs';
 import {ProductModel} from '../core/models/Product';
 import {products} from '../core/fakeBackend/products';
 import {ProductComponent} from '../product/product.component';
-import {ProductService} from '../core/services/ProductService';
+import {ProductService} from '../core/services/productService';
 import {ProductColorListComponent} from '../product-color-list/product-color-list.component';
 import {MatChipsModule} from '@angular/material/chips';
 import {ProductColorItemComponent} from '../product-color-item/product-color-item.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {CartComponent} from '../cart/cart.component';
+import {ShippingComponent} from '../shipping/shipping.component';
+import {HttpClientModule} from '@angular/common/http';
 
 export class ProductListResolver implements Resolve<ProductModel[]> {
   constructor() {
@@ -36,8 +39,10 @@ export class ProductResolver implements Resolve<ProductModel> {
 
 const productRoutes: Routes = [
   {path: 'products/:productId', component: ProductDetailsComponent, resolve: {product: ProductResolver}},
+  {path: 'cart', component: CartComponent},
+  { path: 'shipping', component: ShippingComponent },
   {path: '', component: ProductListComponent, resolve: {productList: ProductListResolver}},
-  {path: '**', redirectTo: '/' }
+  {path: '**', redirectTo: '/'}
 ];
 
 
@@ -49,13 +54,16 @@ const productRoutes: Routes = [
     ProductComponent,
     ProductColorListComponent,
     ProductColorListComponent,
-    ProductColorItemComponent
+    ProductColorItemComponent,
+    CartComponent,
+    ShippingComponent
   ],
   exports: [
     ProductAlertsComponent,
     ProductComponent
   ],
   imports: [
+    HttpClientModule,
     RouterModule.forRoot(
       productRoutes
     ),
