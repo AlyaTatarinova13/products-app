@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class CartService {
-  items = [];
+  items = []; // текущие продукты в корзине
   constructor(private http: HttpClient) { }
 
   addToCart(product) {
