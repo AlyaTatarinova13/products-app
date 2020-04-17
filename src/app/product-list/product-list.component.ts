@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {ProductModel} from '../core/models/Product';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  products;
+  products: ProductModel[];
 
   constructor(private route: ActivatedRoute) {
   }

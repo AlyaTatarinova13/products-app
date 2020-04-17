@@ -1,9 +1,29 @@
 .product {
   border: 1px solid blue;
-  margin: 5%;
+  //margin: 5%;
   padding: 5%;
+  width: 270px;
+  height: 420px;
 }
 
+h2 {
+  text-align: center;
+}
+
+.decription-container {
+  min-height: 40px;
+  width: 100%;
+}
+
+.price-container {
+  height: 32px;
+  width: 100%;
+  text-align: left;
+}
+
+.mb0 {
+  margin-bottom: 0;
+}
 
 .button {
   margin: 10%;

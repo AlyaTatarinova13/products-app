@@ -33,6 +33,7 @@ export class ProductResolver implements Resolve<ProductModel> {
   }
 
   resolve(): Observable<ProductModel> {
+    // console.log(of(this.productService.getProduct(+['id'])));
     return of(this.productService.getProduct(+['id']));
   }
 }
@@ -60,7 +61,8 @@ const productRoutes: Routes = [
   ],
   exports: [
     ProductAlertsComponent,
-    ProductComponent
+    ProductComponent,
+    ProductListComponent
   ],
   imports: [
     HttpClientModule,

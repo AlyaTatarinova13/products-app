@@ -8,6 +8,7 @@ import {TopBarComponent} from './top-bar/top-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductModuleModule} from './product-module/product-module.module';
 import { HttpClientModule } from '@angular/common/http';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    ProductModuleModule
+    ProductModuleModule,
+    FlexLayoutModule
   ],
   providers: [],
   exports: [],

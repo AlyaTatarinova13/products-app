@@ -1,5 +1,9 @@
-<h2>Products</h2>
-
-<div *ngFor="let product of products; index as productId">
-  <app-product [product]="product" [productId]="productId"></app-product>
+<div class="d7">
+  <h1>Products</h1>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-around center"> <!--  class="row" -->
+  <div *ngFor="let product of products; index as productId">
+    <!-- fxLayout="row" fxLayoutAlign="center center" class="col-md-6 col-lg-4" -->
+    <app-product [product]="product" [productId]="productId"></app-product>
+  </div>
 </div>

@@ -1,22 +1,25 @@
-<div class="product">
+<div class="product" fxLayout="column" fxLayoutAlign="space-between center">
   <div>
-    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
-      {{ product.name }}
-    </a>
+    <h2>
+      <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
+        {{ product.name }}
+      </a>
+    </h2>
   </div>
-  <div *ngIf="product.description">
-    <p>
+  <div class="decription-container">
+    <p class="mb0" *ngIf="product.description">
       Description: {{ product.description }}
     </p>
   </div>
-  <div *ngIf="product.price"  fxLayout="row" fxLayoutAlign="space-between center">
-    <p> Price: {{ product.price }}</p>
+  <div class="price-container" *ngIf="product.price" fxLayout="row" fxLayoutAlign="space-between center">
+    <p class="mb0"> Price: {{ product.price }}</p>
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
   </div>
   <div>
     <p>Count: {{product.count}}</p>
   </div>
-  <app-product-color-list [productColors]="product.colorModels" (changeCount)="recalculate($event)"></app-product-color-list>
+  <app-product-color-list [productColors]="product.colorModels"
+                          (changeCount)="recalculate($event)"></app-product-color-list>
   <div class="button" fxLayoutAlign="center center">
     <button (click)="share()"> Share</button>
   </div>
