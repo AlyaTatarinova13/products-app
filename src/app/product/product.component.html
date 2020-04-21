@@ -18,8 +18,7 @@
   <div>
     <p>Count: {{product.count}}</p>
   </div>
-  <app-product-color-list [productColors]="product.colorModels"
-                          (changeCount)="recalculate($event)"></app-product-color-list>
+  <app-product-color-list [productColors]="product.colorModels" [productId] = "product.id"></app-product-color-list>
   <div class="button" fxLayoutAlign="center center">
     <button (click)="share()"> Share</button>
   </div>

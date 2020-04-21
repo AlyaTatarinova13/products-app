@@ -15,22 +15,16 @@ export class ProductComponent implements OnInit {
   @Input() productId: number;
 
 
-  constructor(private productService: ProductService) {
-  }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.productService.initCount(this.product).subscribe( value => {
-      this.product.count = value;
+    this.productService.initCount(this.product);
+    this.productService.count.subscribe(value => {
+      this.product.count = value[this.product.id];
+      console.log('Subscription got', value);
+      // console.log('this.product.id', this.product.id);
+      // console.log('value[this.product.id]', value[this.product.id]);
     });
-    // console.log(this.productService.initCount(this.product));
-    // let productCountObs = new BehaviorSubject(this.productService.initCount(this.product));
-    // console.log(productCountObs);
-    // productCountObs.subscribe(value => {
-    //   console.log('Subscription got', value);
-    // });
-    // for (let i = 0; i < this.product.colorModels.length; i++) {
-    //   this.product.count += this.product.colorModels[i].count;
-    // }
   }
 
   share() {
@@ -39,17 +33,5 @@ export class ProductComponent implements OnInit {
 
   onNotify() {
     window.alert('You will be notified when the product goes on sale');
-  }
-
-  recalculate(e) {
-    this.product.count = this.productService.changeCount(e, this.product.count);
-    // this.productCountObs.next(this.productService.changeCount(e, this.productCountObs));
-    // this.productService.changeCount(e, productCountObs);
-    //   if (e === ValueChangeCount.Plus) {
-    //     this.product.count++;
-    //   } else {
-    //     this.product.count--;
-    //   }
-    // }
   }
 }

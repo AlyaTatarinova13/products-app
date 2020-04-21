@@ -9,14 +9,11 @@ import {ValueChangeCount} from '../product-color-item/product-color-item.compone
 })
 export class ProductColorListComponent implements OnInit {
   @Input() productColors: ColorModel[];
-  @Output() changeCount = new EventEmitter<ValueChangeCount>();
+  @Input() productId: number;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  recalculateProductModelCount(e) {
-    this.changeCount.emit(e);
+  ngOnInit(): void {
   }
 }
