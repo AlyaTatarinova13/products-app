@@ -1,29 +1,26 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ProductModel} from '../core/models/Product';
 import {ValueChangeCount} from '../product-color-item/product-color-item.component';
 import {init} from 'protractor/built/launcher';
 import {ProductService} from '../core/services/product.service';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy{
   @Input() product: ProductModel;
   @Input() productId: number;
-
+  private productCount: Subscription;
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.productService.initCount(this.product);
-    this.productService.count.subscribe(value => {
+    this.productCount = this.productService.count.subscribe(value => {
       this.product.count = value[this.product.id];
-      console.log('Subscription got', value);
-      // console.log('this.product.id', this.product.id);
-      // console.log('value[this.product.id]', value[this.product.id]);
     });
   }
 
@@ -33,5 +30,9 @@ export class ProductComponent implements OnInit {
 
   onNotify() {
     window.alert('You will be notified when the product goes on sale');
+  }
+
+  ngOnDestroy(): void {
+    this.productCount.unsubscribe();
   }
 }
