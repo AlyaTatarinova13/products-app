@@ -7,7 +7,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopBarComponent} from './top-bar/top-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductModuleModule} from './product-module/product-module.module';
-import { HttpClientModule } from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
@@ -17,7 +16,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
   ],
   imports: [
     BrowserModule,
-
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
