@@ -17,6 +17,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CartComponent} from '../cart/cart.component';
 import {ShippingComponent} from '../shipping/shipping.component';
 import {HttpClientModule} from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { productCounterReducer } from '../product-counter/product-counter.reducer';
+import {ProductCounterComponent} from '../product-counter/product-counter.component';
 
 export class ProductListResolver implements Resolve<ProductModel[]> {
   constructor() {
@@ -57,7 +60,8 @@ const productRoutes: Routes = [
     ProductColorListComponent,
     ProductColorItemComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    ProductCounterComponent,
   ],
   exports: [
     ProductAlertsComponent,
@@ -71,7 +75,8 @@ const productRoutes: Routes = [
     ),
     CommonModule,
     MatChipsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    StoreModule.forRoot({ count: productCounterReducer })
   ],
   providers: [ProductService]
 })

@@ -15,6 +15,10 @@ export class ProductService {
   constructor() {
   }
 
+  getAll(): ProductModel[] {
+    return products;
+  }
+
   getProduct(index) {
     return products[index];
   }
