@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {products} from '../fakeBackend/products';
 import {ProductModel} from '../models/Product';
-import {BehaviorSubject} from 'rxjs';
+import {BehaviorSubject, of, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,8 @@ export class ProductService {
   constructor() {
   }
 
-  getAll(): ProductModel[] {
-    return products;
+  getAll(): Observable<ProductModel[]> {
+    return of(products);
   }
 
   getProduct(index) {
