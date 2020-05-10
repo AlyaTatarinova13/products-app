@@ -23,13 +23,14 @@ export class ProductService {
     return products[index];
   }
 
-  initCount(product: ProductModel) {
+  initCount(product: ProductModel): Observable<number> {
     let startCount = 0;
     for (let i = 0; i < product.colorModels.length; i++) {
       startCount += product.colorModels[i].count;
     }
     this.arrayCounts[product.id] = startCount;
     this.dataCount.next(this.arrayCounts);
+    return of(startCount);
   }
 
   changeCountPlus(productId: number) {

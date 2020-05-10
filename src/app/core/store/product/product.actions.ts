@@ -10,3 +10,13 @@ export const productListLoadedSuccess = createAction(
   '[Product List] Loaded Success',
   props<{productList: ProductModel[] }>()
 );
+
+export const initProductCount = createAction(
+  '[Product] Init Count',
+  props<{productCount: number }>()
+);
+
+export const updateProductCount = createAction(
+  '[Product] Update Count',
+  props<{productCount: number }>()
+);
