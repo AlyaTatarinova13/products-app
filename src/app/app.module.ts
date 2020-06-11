@@ -12,16 +12,19 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './core/store/product/product.effects';
 import { StoreModule } from '@ngrx/store';
-import * as fromProduct from './core/store/product/product.reducers'
+import * as fromProduct from './core/store/product/product.reducers';
+import { environment } from '../environments/environment';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
-
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
@@ -29,7 +32,10 @@ import * as fromProduct from './core/store/product/product.reducers'
     FlexLayoutModule,
     StoreModule.forRoot({ productList: fromProduct.reducer }),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
-    EffectsModule.forRoot([ProductEffects]),
+    EffectsModule.forRoot([ProductEffects, ]),
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot(),
 
   ],
   providers: [],

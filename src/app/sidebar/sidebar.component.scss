@@ -1,0 +1,47 @@
+.example-container {
+  width: 250px;
+  height: 100%;
+  //margin: 10px;
+  //border: 1px solid #555;
+  background-color: white;
+}
+
+.side-menu {
+  width: calc(100% - 50px);
+
+  &__list {
+    padding: 0;
+  }
+
+  .side-menu__item:first-child {
+    background-color: rgb(84, 4, 163);
+    //border: 0.5px solid #5b07aa;
+    font-weight: bolder;
+
+    span {
+      color: white;
+    }
+  }
+
+  .side-menu__item {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    //border: 0.5px solid #9a9696;
+  }
+}
+
+mat-sidenav-content {
+  height: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+  .btn-sidebar {
+    width: 40px;
+
+    mat-icon {
+      color: white;
+    }
+  }
+}

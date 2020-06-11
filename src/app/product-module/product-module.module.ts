@@ -12,15 +12,17 @@ import {ProductComponent} from '../product/product.component';
 import {ProductService} from '../core/services/product.service';
 import {ProductColorListComponent} from '../product-color-list/product-color-list.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
 import {ProductColorItemComponent} from '../product-color-item/product-color-item.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CartComponent} from '../cart/cart.component';
 import {ShippingComponent} from '../shipping/shipping.component';
 import {HttpClientModule} from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { productCounterReducer } from '../product-counter/product-counter.reducer';
-import {ProductCounterComponent} from '../product-counter/product-counter.component';
-
+import {MatButtonModule} from '@angular/material/button';
+import {SidebarComponent} from '../sidebar/sidebar.component';
 export class ProductListResolver implements Resolve<ProductModel[]> {
   constructor() {
   }
@@ -61,12 +63,15 @@ const productRoutes: Routes = [
     ProductColorItemComponent,
     CartComponent,
     ShippingComponent,
-    ProductCounterComponent,
+    SidebarComponent,
   ],
   exports: [
     ProductAlertsComponent,
     ProductComponent,
-    ProductListComponent
+    ProductListComponent,
+    SidebarComponent,
+    MatIconModule,
+    MatListModule
   ],
   imports: [
     HttpClientModule,
@@ -75,8 +80,11 @@ const productRoutes: Routes = [
     ),
     CommonModule,
     MatChipsModule,
-    FlexLayoutModule,
-    StoreModule.forRoot({ count: productCounterReducer })
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    FlexLayoutModule
   ],
   providers: [ProductService]
 })

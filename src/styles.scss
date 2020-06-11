@@ -15,6 +15,7 @@ body {
 .container {
   display: flex;
   flex-direction: row;
+  margin-bottom: 20px;
 }
 
 router-outlet + *  {
@@ -106,11 +107,16 @@ label {
 
 /* Top Bar */
 
-app-top-bar {
+app-top-bar, app-footer {
   width: 100%;
   height: 68px;
-  background-color: #1976d2;
+  //background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  //background-image: linear-gradient(to top, #5f72bd 0%, #9b23ea 100%);
   padding: 16px;
+  //background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
+  background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+  //background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -138,7 +144,7 @@ app-top-bar h1 {
 }
 
 app-product-list {
-  width: 70%;
+  width: 100%;
 }
 /*
 Copyright Google LLC. All Rights Reserved.

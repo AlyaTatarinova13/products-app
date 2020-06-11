@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+  <mat-sidenav class="side-menu" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <mat-selection-list class="side-menu__list" #itemses [multiple]="false">
+      <mat-list-option class="side-menu__item" disabled><span>Категории</span></mat-list-option>
+      <mat-list-option fxLayout="row" class="side-menu__item" *ngFor="let item of items | async">
+<!--        <span class="material-icons">tablet </span>-->
+        {{ item.name }}
+        <mat-divider></mat-divider>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <button class="btn-sidebar" mat-mini-fab (click)="sidenav.open()" color="primary">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -2,13 +2,7 @@ h1 {
   text-align: center;
   padding-bottom: 10px;
   font-size: 32px;
-}
-
-.d7 {
-  padding: 20px 0;
-  border-bottom: 2px solid rgba(0, 0, 0, .05);
-  text-align: center;
-  font-weight: bold;
+  color: black;
 }
 
 .button, button {
@@ -47,4 +41,20 @@ label {
   margin-bottom: 4px;
   display: block;
   text-transform: uppercase;
+}
+
+.d7 {
+  padding: 20px 0;
+  //border-bottom: 2px solid rgba(0, 0, 0, .05);
+  text-align: center;
+  font-weight: bold;
+}
+
+.products-grid {
+  display: grid;
+  gap: 15px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-around;
 }
