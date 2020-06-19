@@ -12,21 +12,12 @@ import {Observable} from 'rxjs';
 })
 export class SidebarComponent implements OnInit {
   public items: Observable<Array<SidebarItem>>;
-
-  @ViewChild('sidenav') sidenav: MatSidenav;
+  opened: boolean;
 
   constructor(private sidebarService: SidebarItemsService) { }
 
-  reason = '';
-
-  close(reason: string) {
-    this.reason = reason;
-    this.sidenav.close();
-  }
-
   ngOnInit(): void {
     this.items = this.sidebarService.getAll();
-
     console.log(this.items);
   }
 }
