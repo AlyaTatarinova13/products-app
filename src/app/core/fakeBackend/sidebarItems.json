@@ -1,0 +1,19 @@
+[
+  {
+    "id": 1,
+    "name": "Phones",
+    "child": null
+  },
+
+  {
+    "id": 2,
+    "name": "Tablets",
+    "child": null
+  },
+
+  {
+    "id": 3,
+    "name": "Laptops",
+    "child": null
+  }
+]

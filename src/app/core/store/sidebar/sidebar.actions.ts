@@ -7,7 +7,7 @@ export const sidebarLoad = createAction(
 
 export const sidebarLoadSuccess = createAction(
   '[SidebarItems] Load Success',
-  props<{sidebarItems: SidebarItem}>()
+  props<{sidebarItems: SidebarItem[]}>()
 );
 
 export const sidebarLoadFailed = createAction(

@@ -84,7 +84,7 @@ const productRoutes: Routes = [
     MatButtonModule,
     MatIconModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   providers: [ProductService]
 })

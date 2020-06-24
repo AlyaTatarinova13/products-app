@@ -16,6 +16,11 @@ import * as fromProduct from './core/store/product/product.reducers';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { FooterComponent } from './footer/footer.component';
+import {reducerSidebar} from './core/store/sidebar/sidebar.reducers';
+import {SidebarEffects} from './core/store/sidebar/sidebar.effects';
+import {SidebarItemsService} from './core/services/sidebar-items.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {HttpMockRequestInterceptor} from './core/interceptors/http-mock-request-interceptor';
 
 @NgModule({
   declarations: [
@@ -30,15 +35,21 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     ProductModuleModule,
     FlexLayoutModule,
-    StoreModule.forRoot({ productList: fromProduct.reducer }),
+    // StoreModule.forRoot({ productList: fromProduct.reducer }),
+    StoreModule.forRoot({sidebarItems: reducerSidebar }),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
-    EffectsModule.forRoot([ProductEffects, ]),
+    EffectsModule.forRoot([SidebarEffects, ]),
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
 
   ],
-  providers: [],
+  providers: [SidebarItemsService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass:  HttpMockRequestInterceptor,
+      multi: true,
+    }],
   exports: [],
   bootstrap: [AppComponent]
 })

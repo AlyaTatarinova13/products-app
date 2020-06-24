@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {Observable, of, pipe} from 'rxjs';
 import {SidebarItem} from '../models/SidebarItems';
-import {sidebarItems} from '../fakeBackend/sidebarItems';
+import {map} from 'rxjs/operators';
+import {on} from '@ngrx/store';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class SidebarItemsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Array<SidebarItem>> {
-    // console.log('sidebarItems');
-    return of(sidebarItems);
+  public getAll(): Observable<Array<SidebarItem>> { // Observable<Array<SidebarItem>>
+    console.log('From service:');
+    this.http.get<Array<SidebarItem>>(`sidebarItems`).pipe().subscribe({
+      next: console.log
+    });
+    return this.http.get<Array<SidebarItem>>(`sidebarItems`);
   }
 }
