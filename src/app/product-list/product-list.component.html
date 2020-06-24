@@ -1,8 +1,8 @@
 <div class="d7">
   <h1>Products</h1>
 </div>
-<div class="products-grid">
-  <div *ngFor="let product of products; index as productId">
+<div class="products-container">
+  <div class="products-container__item" *ngFor="let product of products; index as productId">
     <app-product [product]="product" [productId]="productId"></app-product>
   </div>
 </div>

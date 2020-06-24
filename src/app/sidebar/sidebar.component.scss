@@ -4,6 +4,7 @@
 
   .side-menu {
     width: 200px;
+    border-right: none;
 
     * {
       padding-left: 0;
@@ -15,11 +16,10 @@
     }
 
     &__item:first-child {
-      //background: rgba(151, 36, 210, 0.66);
       background: linear-gradient(#932694db 15%, #8000abab, #e476aff2);
       font-weight: bolder;
-      border-top: 1px solid #ffffff;
-
+      border-bottom: 1px solid #ea96c3;
+      margin-top: 1px;
       span {
         color: white;
       }
@@ -35,12 +35,24 @@
   }
 }
 
+.side-main-content {
+  border-right: none;
+}
+
 mat-sidenav-content {
   align-items: flex-start;
   display: flex;
   justify-content: flex-end;
 
   .btn-sidebar {
+    padding: 0;
+    min-width: 50px;
+    height: 50px;
+    margin-top: 1px;
+    border-radius: 0 100px 100px 0;
+    box-shadow: none;
+    background: linear-gradient(#932694db 15%, #8000abab, #e476aff2);
+
     mat-icon {
       color: white;
     }

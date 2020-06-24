@@ -50,11 +50,14 @@ label {
   font-weight: bold;
 }
 
-.products-grid {
-  display: grid;
-  gap: 15px;
-  grid-template-rows: repeat(2, 1fr);
-  grid-auto-flow: column;
+.products-container {
+  display: flex;
+  flex-flow: row wrap;
   align-items: center;
+  align-content: space-around;
   justify-content: space-around;
+
+  &__item {
+    margin: 15px auto;
+  }
 }
