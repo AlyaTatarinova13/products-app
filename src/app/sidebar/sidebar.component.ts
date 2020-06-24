@@ -8,6 +8,7 @@ import { selectSidebarItems} from '../core/store/sidebar/sidebar.selector';
 import {Observable} from 'rxjs';
 import { Store, select } from '@ngrx/store';
 import {map, tap} from 'rxjs/operators';
+import {initProductCount} from '../core/store/product/product.actions';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,7 +28,6 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(sidebarLoad());
-    // this.items = this.sidebarService.getAll();
-    // console.log(this.items);
+    // this.store.dispatch({ type: '[SidebarItems] Load' });
   }
 }

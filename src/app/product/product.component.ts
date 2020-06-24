@@ -29,8 +29,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     });
   }
 
-  share() {
-    window.alert('The product has been shared');
+  addToCart() {
+    window.alert('The product has been added');
   }
 
   onNotify() {
