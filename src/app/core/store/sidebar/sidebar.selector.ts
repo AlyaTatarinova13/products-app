@@ -1,10 +1,13 @@
 import {SidebarState} from './sidebar.reducers';
 import { createSelector } from '@ngrx/store';
-import {combineAll} from 'rxjs/operators';
+import { RootState } from '..';
 
-export const selectRootState = (state: SidebarState) => state;
+export const selectRootState = (state: RootState) => {
+  console.log('state', state);
+  return state;
+};
 
 export const selectSidebarItems = createSelector(
   selectRootState,
-  (state: SidebarState) => state.sidebarItems
+  (state: RootState) => state.sidebarItems
 );

@@ -20,7 +20,6 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {CartComponent} from '../cart/cart.component';
 import {ShippingComponent} from '../shipping/shipping.component';
 import {HttpClientModule} from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
 import {MatButtonModule} from '@angular/material/button';
 import {SidebarComponent} from '../sidebar/sidebar.component';
 export class ProductListResolver implements Resolve<ProductModel[]> {

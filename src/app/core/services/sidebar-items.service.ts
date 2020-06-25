@@ -13,11 +13,11 @@ export class SidebarItemsService {
 
   constructor(private http: HttpClient) { }
 
-  public getAll(): Observable<Array<SidebarItem>> { // Observable<Array<SidebarItem>>
+  public getAll(): Observable<SidebarItem> { // Observable<Array<SidebarItem>>
     console.log('From service:');
     this.http.get<Array<SidebarItem>>(`sidebarItems`).pipe().subscribe({
       next: console.log
     });
-    return this.http.get<Array<SidebarItem>>(`sidebarItems`);
+    return this.http.get<SidebarItem>(`sidebarItems`);
   }
 }
