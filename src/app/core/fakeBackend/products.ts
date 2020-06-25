@@ -61,5 +61,13 @@ export const products: ProductModel[] = [
     count: null,
     description: '',
     colorModels: [{color: AvailableColors.White, count: 8}]
+  },
+  {
+    id: 8,
+    name: 'Phone Cool',
+    price: 17000,
+    count: null,
+    description: 'It\'s a great phone',
+    colorModels: [{color: AvailableColors.Black, count: 3}]
   }
 ];

@@ -25,13 +25,14 @@ app-root {
 
 app-top-bar, app-footer {
   width: 100%;
-  height: 68px;
+  min-height: 68px;
   padding: 16px;
   background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-content: center;
 }
 
 app-top-bar h1 {
