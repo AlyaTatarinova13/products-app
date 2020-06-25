@@ -30,9 +30,10 @@
       justify-content: center;
       height: 50px;
       width: 100%;
-      span{
-        border-bottom: 1px solid rgba(69, 0, 109, 0.1);
-      }
+      border-bottom: 1px solid rgba(69, 0, 109, 0.1);
+    }
+    &__item:hover {
+      border-right: 1px solid rgba(69, 0, 109, 0.1);;
     }
   }
 }

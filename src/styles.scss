@@ -8,18 +8,49 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+html, body, app-root {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+}
+
+app-top-bar, app-footer {
+  width: 100%;
+  height: 68px;
+  padding: 16px;
+  background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+app-top-bar h1 {
+  color: white;
+  margin: 0;
+}
+
+app-product-list {
+  width: 100%;
+}
+
+router-outlet + * {
+  padding: 0 16px;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-}
-
-router-outlet + *  {
-  padding: 0 16px;
 }
 
 /* Text */
@@ -107,26 +138,6 @@ label {
 
 /* Top Bar */
 
-app-top-bar, app-footer {
-  width: 100%;
-  height: 68px;
-  //background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
-  //background-image: linear-gradient(to top, #5f72bd 0%, #9b23ea 100%);
-  padding: 16px;
-  //background-image: linear-gradient(to top, #b224ef 0%, #7579ff 100%);
-  background-image: linear-gradient(to right, #ec77ab 0%, #7873f5 100%);
-  //background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-app-top-bar h1 {
-  color: white;
-  margin: 0;
-}
 
 /* Checkout Cart, Shipping Prices */
 
@@ -143,14 +154,9 @@ app-top-bar h1 {
   background-color: #EEEEEE;
 }
 
-app-product-list {
-  width: 100%;
-}
+
 /*
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
