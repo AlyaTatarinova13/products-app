@@ -7,7 +7,7 @@ import {Resolve, RouterModule, Routes} from '@angular/router';
 import {Observable} from 'rxjs';
 import {of} from 'rxjs';
 import {ProductModel} from '../core/models/Product';
-import {products} from '../core/fakeBackend/products';
+// import {productsz} from '../core/fakeBackend/products';
 import {ProductComponent} from '../product/product.component';
 import {ProductService} from '../core/services/product.service';
 import {ProductColorListComponent} from '../product-color-list/product-color-list.component';
@@ -22,31 +22,32 @@ import {ShippingComponent} from '../shipping/shipping.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {SidebarComponent} from '../sidebar/sidebar.component';
-export class ProductListResolver implements Resolve<ProductModel[]> {
-  constructor() {
-  }
 
-  resolve(): Observable<ProductModel[]> {
-    return of(products);
-  }
-}
+// export class ProductListResolver implements Resolve<ProductModel[]> {
+//   constructor() {
+//   }
 
-@Injectable()
-export class ProductResolver implements Resolve<ProductModel> {
-  constructor(private productService: ProductService) {
-  }
+  // resolve(): Observable<ProductModel[]> {
+  //   return of(products);
+  // }
+// }
 
-  resolve(): Observable<ProductModel> {
-    // console.log(of(this.productService.getProduct(+['id'])));
-    return of(this.productService.getProduct(+['id']));
-  }
-}
+// @Injectable()
+// export class ProductResolver implements Resolve<ProductModel> {
+//   constructor(private productService: ProductService) {
+//   }
+//
+//   resolve(): Observable<ProductModel> {
+//     // console.log(of(this.productService.getProduct(+['id'])));
+//     return of(this.productService.getProduct(+['id']));
+//   }
+// }
 
 const productRoutes: Routes = [
-  {path: 'products/:productId', component: ProductDetailsComponent, resolve: {product: ProductResolver}},
+  {path: 'products/:productId', component: ProductDetailsComponent}, // , resolve: {product: ProductResolver}
   {path: 'cart', component: CartComponent},
   { path: 'shipping', component: ShippingComponent },
-  {path: '', component: ProductListComponent, resolve: {productList: ProductListResolver}},
+  {path: '', component: ProductListComponent}, // , resolve: {productList: ProductListResolver}
   {path: '**', redirectTo: '/'}
 ];
 

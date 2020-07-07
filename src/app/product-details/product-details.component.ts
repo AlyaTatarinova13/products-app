@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {products} from '../core/fakeBackend/products';
+// import {products} from '../core/fakeBackend/products';
 import {CartService} from '../core/services/cart.service';
 import {Subscription} from 'rxjs';
 
@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.model = this.route.paramMap.subscribe(
       (product) => {
-        this.productModel = products[product.get('productId')];
+        // this.productModel = products[product.get('productId')];
       }
     );
   }

@@ -37,7 +37,7 @@ import {reducers} from './core/store';
     // StoreModule.forRoot({ productList: fromProduct.reducer }),
     StoreModule.forRoot(reducers),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
-    EffectsModule.forRoot([SidebarEffects]),
+    EffectsModule.forRoot([SidebarEffects, ProductEffects]),
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     // StoreRouterConnectingModule.forRoot(),
 

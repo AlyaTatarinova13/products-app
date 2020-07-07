@@ -26,7 +26,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     // this.items$ = this.store.pipe(select(selectSidebarItems), tap(val => console.log('from app component', val)));
     this.items$ = this.store.pipe(select(selectSidebarItems),
       tap(val => console.log('from app component', val)))
-      .pipe(tap(settings => this.items = JSON.stringify(settings)));
+      .pipe(tap(sidebar => this.items = JSON.stringify(sidebar)));
   }
 
   ngOnInit(): void {

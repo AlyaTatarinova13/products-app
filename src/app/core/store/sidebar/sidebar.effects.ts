@@ -18,7 +18,7 @@ export class SidebarEffects {
 
   constructor(
     private actions$: Actions,
-    private sidebarService: SidebarItemsService,
+    private sidebarService: SidebarItemsService
   ) {
   }
 }
