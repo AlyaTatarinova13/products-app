@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ColorModel} from '../core/models/Product';
 import {ProductService} from '../core/services/product.service';
+import {AvailableColors} from '../core/models/AvailableColors';
 
 export enum ValueChangeCount {
   Plus = 'PLUS',
@@ -35,6 +36,8 @@ export class ProductColorItemComponent implements OnInit {
   }
 
   getColor() {
+    // let color = this.productColorItem.color;
+    // console.log('this.productColorItem.color', color);
     return this.productColorItem.color;
   }
 }

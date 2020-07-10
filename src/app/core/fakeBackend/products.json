@@ -4,55 +4,135 @@
     "name": "Phone XL",
     "price": 799,
     "count": null,
-    "description": "A large phone with one of the best screens"
+    "description": "A large phone with one of the best screens",
+    "colorModels": [
+      {
+        "color": "White",
+        "count": 0
+      },
+      {
+        "color": "Red",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 2,
     "name": "Phone Mini",
     "price": 699,
     "count": null,
-    "description": "A great phone with one of the best cameras"
+    "description": "A great phone with one of the best cameras",
+    "colorModels": [
+      {
+        "color": "White",
+        "count": 0
+      },
+      {
+        "color": "Black",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 3,
     "name": "Samsung X",
     "price": 3099,
     "count": null,
-    "description": ""
+    "description": "",
+    "colorModels": [
+      {
+        "color": "Yellow",
+        "count": 0
+      },
+      {
+        "color": "Green",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 4,
     "name": "Nokia 3310",
     "price": 99,
     "count": null,
-    "description": "A large phone with one of the best screens"
+    "description": "A large phone with one of the best screens",
+    "colorModels": [
+      {
+        "color": "White",
+        "count": 0
+      },
+      {
+        "color": "Green",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 5,
     "name": "Meizu m2 Mini",
     "price": 390,
     "count": null,
-    "description": "A great phone with one of the best cameras"
+    "description": "A great phone with one of the best cameras",
+    "colorModels": [
+      {
+        "color": "Yellow",
+        "count": 0
+      },
+      {
+        "color": "Black",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 6,
     "name": "Phone Standard",
     "price": 978,
     "count": null,
-    "description": ""
+    "description": "",
+    "colorModels": [
+      {
+        "color": "Red",
+        "count": 0
+      },
+      {
+        "color": "Green",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 7,
     "name": "Phone Great",
     "price": 90000,
     "count": null,
-    "description": ""
+    "description": "",
+    "colorModels": [
+      {
+        "color": "Yellow",
+        "count": 0
+      },
+      {
+        "color": "Green",
+        "count": 3
+      }
+    ]
   },
   {
     "id": 8,
     "name": "Phone Star",
     "price": 17000,
     "count": null,
-    "description": "It's a great phone"
+    "description": "It's a great phone",
+    "colorModels": [
+      {
+        "color": "Pink",
+        "count": 0
+      },
+      {
+        "color": "Purple",
+        "count": 3
+      }
+    ]
   }
 ]

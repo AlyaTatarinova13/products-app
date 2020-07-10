@@ -9,7 +9,7 @@ export interface ProductState {
   description: string;
   count: number;
   price: number;
-  // colorModels: ColorModel[];
+  colorModels: ColorModel[];
 }
 
 export const initialProductState: ProductState = {
@@ -19,7 +19,7 @@ export const initialProductState: ProductState = {
   description: null,
   count: null,
   price: null,
-  // colorModels: []
+  colorModels: []
 };
 
 export const productReducer = createReducer(

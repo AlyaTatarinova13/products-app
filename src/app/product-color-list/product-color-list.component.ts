@@ -15,5 +15,6 @@ export class ProductColorListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // console.log('this.productColors: ', this.productColors);
   }
 }
