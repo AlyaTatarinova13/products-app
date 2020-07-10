@@ -1,4 +1,4 @@
-import {RootState} from '../index';
+import {RootState} from '..';
 import {createSelector} from '@ngrx/store';
 
 export const selectRootState = (state: RootState) => {

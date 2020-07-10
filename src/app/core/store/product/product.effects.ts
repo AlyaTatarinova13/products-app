@@ -34,7 +34,6 @@ export class ProductEffects {
   constructor(
     private actions$: Actions,
     private productService: ProductService
-    // private moviesService: MoviesService
   ) {
   }
 }

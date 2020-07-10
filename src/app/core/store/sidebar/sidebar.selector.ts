@@ -1,4 +1,3 @@
-import {SidebarState} from './sidebar.reducers';
 import { createSelector } from '@ngrx/store';
 import { RootState } from '..';
 

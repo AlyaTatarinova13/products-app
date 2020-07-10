@@ -19,12 +19,12 @@ export class ProductService {
   }
 
 
-  getAll(): Observable<ProductModel> {
+  getAll(): Observable<Array<ProductModel>> {
     console.log('From product service:');
-    this.http.get<Array<ProductModel>>(`productList`).pipe().subscribe({
+    this.http.get<ProductModel>(`productList`).pipe().subscribe({
       next: console.log
     });
-    return this.http.get<ProductModel>(`productList`);
+    return this.http.get<Array<ProductModel>>(`productList`);
   }
 
   // getProduct(index) {
