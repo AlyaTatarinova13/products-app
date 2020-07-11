@@ -8,5 +8,5 @@ export const selectRootState = (state: RootState) => {
 
 export const selectProductList = createSelector(
   selectRootState,
-  (state: RootState) => state.productList
+  (state: RootState) => state.product.productList
 );
