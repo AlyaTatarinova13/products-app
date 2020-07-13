@@ -8,7 +8,7 @@ export const productListLoad = createAction(
 
 export const productListLoadedSuccess = createAction(
   '[Product List] Loaded Success',
-  props<{productList: ProductModel }>()
+  props<{productList: ProductModel[] }>()
 );
 
 export const initProductCount = createAction(

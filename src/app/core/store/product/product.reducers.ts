@@ -1,47 +1,44 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import {Action, createReducer, on} from '@ngrx/store';
 import * as ProductActions from './product.actions';
 import {ColorModel, ProductModel} from '../../models/Product';
+import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 
-export interface ProductState {
-  // productList: ProductModel[];
-  id: number;
-  name: string;
-  description: string;
-  count: number;
-  price: number;
-  colorModels: ColorModel[];
+export interface ProductState extends EntityState<ProductModel> {
+  selectedProductId: number | null;
 }
 
-export const initialProductState: ProductState = {
-  // productList: [],
-  id: null,
-  name: null,
-  description: null,
-  count: null,
-  price: null,
-  colorModels: []
-};
+export function selectUserId(selectedId: ProductModel) {
+  return selectedId.id;
+}
+
+export function sortByName(a: ProductModel, b: ProductModel) {
+  return a.name.localeCompare(b.name); // compare strings alphabetically. Return -numb, 0 or +numb
+}
+
+export const adapter: EntityAdapter<ProductModel> = createEntityAdapter<ProductModel>(
+  {
+    selectId: selectUserId,
+    sortComparer: sortByName,
+  }
+);
+
+export const initialProductState: ProductState = adapter.getInitialState({
+  selectedProductId: null,
+});
 
 export const productReducer = createReducer(
   initialProductState,
-  on(ProductActions.productListLoadedSuccess, (state, action) => {
-    console.log('product reducer: ', action.productList);
-    return action.productList;
+  on(ProductActions.productListLoadedSuccess, (state, {productList}) => {
+    console.log('product reducer: ', adapter.setAll(productList, state));
+    return adapter.setAll(productList, state);
   })
-
-  // on(ProductActions.initProductCountSuccess, (state, action) => {
-  //   console.log('initProductCountSuccess action', action)
-  //   return {
-  //     ...state, productList:
-  //     {
-  //       ...state.productList, [action.productId - 1]:
-  //         { ...state.productList[action.productId - 1], count: action.count }
-  //     }
-  //
-  //   };
-  // })
 );
 
-// export function reducer(state: ProductState | undefined, action: Action) {
-//   return productReducer(state, action);
-// }
+const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = adapter.getSelectors();
+
+export const selectAllProducts = selectAll;

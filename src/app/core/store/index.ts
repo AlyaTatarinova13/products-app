@@ -4,10 +4,10 @@ import {productReducer, ProductState} from './product/product.reducers';
 
 export interface RootState {
   sidebarItems: SidebarState;
-  productList: ProductState;
+  product: ProductState;
 }
 
 export const reducers: ActionReducerMap<RootState> = {
   sidebarItems: sidebarReducer,
-  productList: productReducer
+  product: productReducer
 };
