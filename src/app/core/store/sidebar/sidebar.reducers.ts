@@ -21,7 +21,3 @@ export const sidebarReducer = createReducer(
   //   return {sidebarItems: error};
   // })
 );
-
-// export function reducerSidebar(state: SidebarState, action: Action) {
-//   return sidebarReducer(state, action);
-// }

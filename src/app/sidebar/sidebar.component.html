@@ -2,7 +2,7 @@
   <mat-sidenav class="side-menu" #sidenav mode="side" [(opened)]="opened">
     <mat-selection-list class="side-menu__list" #itemses [multiple]="false">
       <mat-list-option class="side-menu__item" disabled><span>Категории</span></mat-list-option>
-      <mat-list-option class="side-menu__item" *ngFor="let item of items">
+      <mat-list-option class="side-menu__item" *ngFor="let item of items$ | async">
         {{ item.name }}
       </mat-list-option>
     </mat-selection-list>

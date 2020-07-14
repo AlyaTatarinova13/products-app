@@ -1,13 +1,17 @@
 import {SidebarState} from './sidebar.reducers';
-import { createSelector } from '@ngrx/store';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
 import { RootState } from '..';
+import * as fromSidebar from '../sidebar/sidebar.reducers';
+import {state} from '@angular/animations';
 
-export const selectRootState = (state: RootState) => {
-  console.log('state', state);
-  return state;
-};
+// export const selectSidebarState = (state: SidebarState) => {
+//   console.log('state', state);
+//   return state;
+// };
 
-export const selectSidebarItems = createSelector(
-  selectRootState,
-  (state: RootState) => state.sidebarItems
-);
+export const selectSidebarItemsState = createFeatureSelector <fromSidebar.SidebarState> ('sidebarItems');
+
+// export const selectSidebarItems = createSelector(
+//   selectSidebarState,
+//   (state: RootState) => state.sidebarItems
+// );

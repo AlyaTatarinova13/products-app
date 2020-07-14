@@ -22,11 +22,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(private productService: ProductService, private store: Store<ProductState>) {}
 
   ngOnInit(): void {
-    this.store.dispatch(initProductCount({product: this.product}));
-    this.productService.initCount(this.product);
-    this.productCount = this.productService.count.subscribe(value => {
-      this.product.count = value[this.product.id];
-    });
+    // this.store.dispatch(initProductCount({product: this.product}));
+    // this.productService.initCount(this.product);
+    // this.productCount = this.productService.count.subscribe(value => {
+    //   this.product.count = value[this.product.id];
+    // });
   }
 
   addToCart() {
