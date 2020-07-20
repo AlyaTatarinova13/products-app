@@ -10,6 +10,6 @@ export interface ProductModel {
 }
 
 export interface ColorModel {
-  color: AvailableColors;
+  color: AvailableColors | string;
   count: number;
 }

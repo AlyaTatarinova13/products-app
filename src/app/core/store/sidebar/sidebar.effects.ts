@@ -11,7 +11,7 @@ export class SidebarEffects {
     ofType('[SidebarItems] Load'),
     mergeMap(() => this.sidebarService.getAll()
       .pipe(
-        tap(sidebarItems => console.log('from sidebarLoad effect', sidebarItems)),
+        // tap(sidebarItems => console.log('from sidebarLoad effect', sidebarItems)),
         map(sidebarItems => SidebarAction.sidebarLoadSuccess({ sidebarItems })),
       ))
   ));

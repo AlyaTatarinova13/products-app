@@ -4,8 +4,12 @@ import * as fromProduct from './product.reducers';
 
 export const selectProductState = createFeatureSelector <fromProduct.ProductState> ('product'); // <RootState>('product');
 
-
 export const selectProductList = createSelector(
   selectProductState,
   fromProduct.selectAllProducts,
 );
+
+// export const selectUpdatedProduct = createSelector(
+//   selectProductState,
+//   fromProduct.selectProductById(3)
+// );

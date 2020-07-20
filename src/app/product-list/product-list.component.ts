@@ -18,8 +18,8 @@ export class ProductListComponent implements OnInit {
   productList$: Observable<Array<ProductModel>>;
 
   constructor(private store: Store<RootState>) { // private route: ActivatedRoute,
-    this.productList$ = this.store.pipe(select(selectProductList),
-      tap(val => console.log('from product component', val)));
+    this.productList$ = this.store.pipe(select(selectProductList));
+      // tap(val => console.log('from product component', val)));
   }
 
   ngOnInit(): void {

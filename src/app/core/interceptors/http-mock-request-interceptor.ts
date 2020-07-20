@@ -30,14 +30,6 @@ export class HttpMockRequestInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // TODO exclude assets/icons
-    // if (request.url.includes('assets/icons')) {
-    //   return next.handle(request);
-    // }
-
-    // if (request.url.indexOf(environment.uploadUrl) === 0) {
-    //   return next.handle(request);
-    // }
-
     for (const element of urls) {
       if (request.url === element.url && request.method === element.method) {
         // console.log('request.method: ', request.method);

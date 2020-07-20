@@ -14,7 +14,7 @@ export const initialSidebarState: SidebarState = {
 export const sidebarReducer = createReducer(
   initialSidebarState,
   on(SidebarAction.sidebarLoadSuccess, (state, action) => {
-    console.log('sidebar Reducer', action.sidebarItems);
+    // console.log('sidebar Reducer', action.sidebarItems);
     return action.sidebarItems;
   })
   // on(SidebarAction.sidebarLoadFailed, (state, {error}) => {

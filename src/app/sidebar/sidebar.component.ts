@@ -19,8 +19,8 @@ export class SidebarComponent implements OnInit {
 
   constructor(private store: Store<RootState>) {
     this.items$ = this.store.pipe(
-      select(selectSidebarItemsState),
-      tap(val => console.log('from sidebar component', val)));
+      select(selectSidebarItemsState));
+      // tap(val => console.log('from sidebar component', val)));
   }
 
   ngOnInit(): void {
