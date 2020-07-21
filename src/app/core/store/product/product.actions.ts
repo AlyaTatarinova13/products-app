@@ -17,13 +17,6 @@ export const productListLoadedSuccess = createAction(
   props<{ productList: ProductModel[] }>()
 );
 
-// export class UpdateNameProduct implements Action {
-//   readonly type = TypesProductActions.UpdateNameProduct;
-//
-//   constructor(public updatedName: Update<ProductModel>) {
-//   }
-// }
-
 export const updateProductName = createAction(
   '[Product] Update Product Name',
   props<{ updatingProduct: ProductModel }>()

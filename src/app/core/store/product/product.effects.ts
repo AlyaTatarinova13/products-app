@@ -33,19 +33,6 @@ export class ProductEffects {
       tap(updated => console.log('from updateProduct effect', updated)),
       map(updated => ProductActions.updateProductNameSuccess({updated})),
       )
-      // console.log('actionData', payload.updatingProduct);
-      // return this.productService.updateNameProduct(payload.updatingProduct).pipe(
-      //   tap(updated => console.log('from updateProduct effect', updated)),
-      //   map(updated => ProductActions.updateProductNameSuccess({ updated })
-      //     // {
-      //     // const updatedProduct: Update<ProductModel> = {
-      //     //   id: updated.id,
-      //     //   changes: updated
-      //     // };
-      //     // return ProductActions.updateProductNameSuccess({updatedProduct});
-      //     // }
-      //     ));
-      // }
     )
     )
   );

@@ -13,7 +13,7 @@ import {Subscription} from 'rxjs';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   productModel;
   private model: Subscription;
-
+z
   constructor(private route: ActivatedRoute,  private cartService: CartService) {
   }
 

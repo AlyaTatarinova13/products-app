@@ -7,6 +7,7 @@ import {RootState} from '../core/store';
 import {selectProductList} from '../core/store/product/product.selector';
 import {takeUntil, tap} from 'rxjs/operators';
 import {productListLoad, productListLoadedSuccess} from '../core/store/product/product.actions';
+import {ProductState} from '../core/store/product/product.reducers';
 
 
 @Component({
@@ -17,9 +18,9 @@ import {productListLoad, productListLoadedSuccess} from '../core/store/product/p
 export class ProductListComponent implements OnInit {
   productList$: Observable<Array<ProductModel>>;
 
-  constructor(private store: Store<RootState>) { // private route: ActivatedRoute,
-    this.productList$ = this.store.pipe(select(selectProductList));
-      // tap(val => console.log('from product component', val)));
+  constructor(private store: Store<ProductState>) { // private route: ActivatedRoute,
+    this.productList$ = this.store.pipe(select(selectProductList),
+      tap(val => console.log('from product component', val)));
   }
 
   ngOnInit(): void {

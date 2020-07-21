@@ -10,7 +10,7 @@ import {select, Store} from '@ngrx/store';
 import {initProductCount, updateProductName} from '../core/store/product/product.actions';
 import {Update} from '@ngrx/entity';
 import {UpdateNum} from '@ngrx/entity/src/models';
-import {selectProductList} from '../core/store/product/product.selector';
+import {selectCurrentProductId, selectProductList} from '../core/store/product/product.selector';
 import {tap} from 'rxjs/operators';
 
 @Component({
@@ -22,21 +22,24 @@ export class ProductComponent implements OnInit {
   @Input() product: ProductModel;
   @Input() productId: number;
   private productCount: Subscription;
-  private product$: Observable<ProductModel>;
+  private product$: Observable<number>; // Observable<ProductModel>;
 
   constructor(private productService: ProductService, private store: Store<ProductState>) {
+    this.product$ = this.store.pipe(
+      select(selectCurrentProductId),
+      tap(product => console.log('product component from selector', product)));
   }
 
   ngOnInit(): void {
-    if (this.product.id === 3) {
-      const updatingProduct = this.product;
-      console.log('updatedProduct from product component: ', updatingProduct);
-      this.store.dispatch(updateProductName({updatingProduct}));
-    }
+
   }
 
   addToCart() {
     window.alert('The product has been added');
+    if (this.product.id === 3) {
+      const updatingProduct = this.product;
+      this.store.dispatch(updateProductName({updatingProduct}));
+    }
   }
 
   onNotify() {

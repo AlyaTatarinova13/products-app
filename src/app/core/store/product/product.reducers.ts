@@ -48,9 +48,6 @@ const {
 } = ProductAdapter.getSelectors();
 
 export const selectAllProducts = selectAll;
+export const selectProductEntities = selectEntities;
+export const getSelectedUserId = (state: ProductState) => state.selectedProductId;
 
-export const selectProductById = (id: number) =>
-  createSelector(
-    selectEntities,
-    entities => entities[id],
-  );
