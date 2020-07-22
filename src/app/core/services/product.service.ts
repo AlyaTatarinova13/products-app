@@ -38,35 +38,15 @@ export class ProductService {
       changes: {name: 'New Mobile Name'}
     };
     return of(updatedProduct);
-    // console.log('update from service: ', this.http.get<ProductModel>('productList').pipe(
-    //   find((product: ProductModel) => product.id === id)));
-    // return this.http.get<ProductModel>('productList').pipe(
-    //   tap(product => console.log('service updating:', product.id)),
-    //   map(product => product.name = ));
-    // const updatedProduct: Update<ProductModel> = {
-    //   id: 3,
-    //   changes: {
-    //     id: 3,
-    //     name: 'New Mobile Name',
-    //     price: 3099,
-    //     count: null,
-    //     description: '',
-    //     colorModels: [
-    //       {
-    //         color: AvailableColors.Yellow,
-    //         count: 0
-    //       },
-    //       {
-    //         color: 'Green',
-    //         count: 3
-    //       }
-    //     ]
-    //   }
-    // };
-    // return this.http.get<ProductModel>('productList');
-    // return of(updatedProduct);
   }
 
+  sortByName(productList: ProductModel[]) {
+    let  array = productList.slice();
+    array.sort((a: ProductModel, b: ProductModel) => {
+      return a.name.localeCompare(b.name);
+    });
+    console.log('array:', array);
+  }
 
   // getProduct(index) {
   //   return products[index];

@@ -1,7 +1,7 @@
 import {RootState} from '../index';
 import {createFeatureSelector, createSelector} from '@ngrx/store';
 import * as fromProduct from './product.reducers';
-import {selectProductEntities} from './product.reducers';
+import {ProductState, selectProductEntities} from './product.reducers';
 
 export const selectProductState = createFeatureSelector<fromProduct.ProductState>('product'); // <RootState>('product');
 
@@ -21,9 +21,8 @@ export const selectCurrentProductId = createSelector(
   fromProduct.getSelectedUserId
 );
 
-// export const selectUpdatedProduct = createSelector(
+// export const selectPrice = createSelector(
 //   selectProductState,
-//   fromProduct.selectProductById(3)
-// );
-
+//   (state: ProductState) => state.,
+// )
 

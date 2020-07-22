@@ -1,13 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 import {ProductModel} from '../core/models/Product';
 import {select, Store} from '@ngrx/store';
-import {Observable, pipe, ReplaySubject} from 'rxjs';
-import {RootState} from '../core/store';
+import {Observable} from 'rxjs';
 import {selectProductList} from '../core/store/product/product.selector';
-import {takeUntil, tap} from 'rxjs/operators';
-import {productListLoad, productListLoadedSuccess} from '../core/store/product/product.actions';
+import {tap} from 'rxjs/operators';
+import {productListLoad, sortByName, sortByPopularity, sortByPrice} from '../core/store/product/product.actions';
 import {ProductState} from '../core/store/product/product.reducers';
+import {updateSortDatas} from '../core/store/sortData/sort-data.actions';
 
 
 @Component({
@@ -25,5 +24,21 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(productListLoad());
+    this.store.dispatch(updateSortDatas({data: 0}));
+  }
+
+  sortByPrice(): void {
+    this.store.dispatch(sortByPrice());
+    this.store.dispatch(updateSortDatas({data: 0}));
+  }
+
+  sortByName(): void {
+    this.store.dispatch(sortByName());
+    this.store.dispatch(updateSortDatas({data: 1}));
+  }
+
+  sortByPopularity(): void {
+    this.store.dispatch(sortByPopularity());
+    this.store.dispatch(updateSortDatas({data: 2}));
   }
 }

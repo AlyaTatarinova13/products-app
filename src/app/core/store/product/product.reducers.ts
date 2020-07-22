@@ -8,18 +8,26 @@ export interface ProductState extends EntityState<ProductModel> {
   selectedProductId: number | null;
 }
 
-export function selectUserId(selectedId: ProductModel) {
+export function selectProductId(selectedId: ProductModel) {
   return selectedId.id;
 }
 
-export function sortById(a: ProductModel, b: ProductModel) {
+export function sortByPopularity(a: ProductModel, b: ProductModel) {
   return a.id - b.id;
+}
+
+export function sortByName(a: ProductModel, b: ProductModel) {
+  return a.name.localeCompare(b.name);
+}
+
+export function sortByPrice(a: ProductModel, b: ProductModel) {
+  return a.price - b.price;
 }
 
 export const ProductAdapter: EntityAdapter<ProductModel> = createEntityAdapter<ProductModel>(
   {
-    selectId: selectUserId,
-    sortComparer: sortById,
+    selectId: selectProductId,
+    // sortComparer: sortByPopularity,
   }
 );
 
@@ -35,8 +43,13 @@ export const productReducer = createReducer(
   }),
   on(ProductActions.updateProductNameSuccess, (state, {updated}) => {
     const result = ProductAdapter.updateOne(updated, state);
-    console.log('product reducer updateName: ', result);
     return result;
+  }),
+  on(ProductActions.sortByNameSuccess, (state, {sortedProductList}) => {
+    // console.log('product reducer sortByNameSuccess: ', productList);
+    // ProductAdapter.sortComparer = sortByName;
+    console.log('product reducer sortByNameSuccess: ', sortedProductList);
+    return ProductAdapter.setAll(sortedProductList, state);
   })
 );
 

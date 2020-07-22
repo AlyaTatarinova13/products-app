@@ -1,6 +1,13 @@
 <div class="d7">
   <h1>Products</h1>
 </div>
+<div fxLayoutAlign="end">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="byPrice" (click)="sortByPrice()">По цене</mat-button-toggle>
+    <mat-button-toggle value="byName" (click)="sortByName()">По имени</mat-button-toggle>
+    <mat-button-toggle value="byPopular" (click)="sortByPopularity()">По популярности</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
 <div class="products-container">
   <div class="products-container__item" *ngFor="let product of productList$ | async; index as productId">
     <app-product [product]="product" [productId]="productId"></app-product>

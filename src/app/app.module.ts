@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TopBarComponent} from './top-bar/top-bar.component';
+
 import {ReactiveFormsModule} from '@angular/forms';
 import {ProductModuleModule} from './product-module/product-module.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
@@ -20,6 +21,8 @@ import {SidebarItemsService} from './core/services/sidebar-items.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HttpMockRequestInterceptor} from './core/interceptors/http-mock-request-interceptor';
 import {reducers} from './core/store';
+import {MatAccordion} from '@angular/material/expansion';
+import { SortDataEffects } from './core/store/sortData/sort-data.effects';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,7 @@ import {reducers} from './core/store';
     // StoreModule.forRoot({ productList: fromProduct.reducer }),
     StoreModule.forRoot(reducers),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
-    EffectsModule.forRoot([SidebarEffects, ProductEffects]),
+    EffectsModule.forRoot([SidebarEffects, ProductEffects, SortDataEffects]),
     // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     // StoreRouterConnectingModule.forRoot(),
 
