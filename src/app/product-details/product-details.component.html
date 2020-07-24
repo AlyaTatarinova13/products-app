@@ -1,10 +1,23 @@
-<div class="main-container" fxLayout="row-reverse" fxLayoutAlign="space-around flex-start">
-  <div *ngIf="productModel">
-    <h3>{{ productModel.name }}</h3>
-    <h4>{{ productModel.price | currency }}</h4>
-    <p>{{ productModel.description }}</p>
-    <button (click)="addToCart(productModel)">Купить</button>
+<div class="layout-container details-container" fxLayoutAlign="space-around flex-start">
+  <div *ngIf="productModel" class="pdp-content" fxLayout="column" fxLayoutAlign="space-around flex-start">
+    <div class="productName">
+      <h1>{{ productModel.name }}</h1>
+    </div>
+    <div class="general-info" fxLayout="row" fxLayoutAlign="space-evenly flex-start">
+      <div class="photo-options" fxLayout="column" fxLayoutAlign="flex-start center">
+        <div class="images">
+          <img [src] = "photoProduct" alt="Photo product">
+        </div>
+        <div class='choosing-menu' *ngIf="photoProduct === defaultPhoto">
+          <p>Photo is not found. You should chose it</p>
+          <app-photo-cropper (changePhoto)="getPhotoFromServer($event)"></app-photo-cropper>
+        </div>
+      </div>
+      <div class="main-info">
+        <div><h2>{{ productModel.price | currency }}</h2></div>
+        <div class="short-description"><p>{{ productModel.description }}</p></div>
+        <button mat-raised-button color="primary" class="button-buy" (click)="addToCart(productModel)"><span>Buy</span></button>
+      </div>
+    </div>
   </div>
-
- <app-photo-cropper></app-photo-cropper>
 </div>

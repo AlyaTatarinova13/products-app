@@ -1,8 +1,11 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, Output} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CartService} from '../core/services/cart.service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {products} from '../core/fakeBackend/products';
+import {PhotoCropperService} from '../core/services/photo-cropper.service';
+import {ImageCroppedEvent} from 'ngx-image-cropper';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-details',
@@ -10,10 +13,11 @@ import {products} from '../core/fakeBackend/products';
   styleUrls: ['./product-details.component.scss']
 })
 export class ProductDetailsComponent implements OnInit, OnDestroy {
-  productModel;
+  public productModel;
   private model: Subscription;
-
-  constructor(private route: ActivatedRoute, private cartService: CartService) {
+  public photoProduct: ImageCroppedEvent | string;
+  public defaultPhoto = 'https://via.placeholder.com/750x600';
+  constructor(private route: ActivatedRoute, private cartService: CartService, private photocropperService: PhotoCropperService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +26,11 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
         this.productModel = products[product.get('productId')];
       }
     );
-    // console.log(this.productModel);
+    this.photoProduct = this.defaultPhoto;
+  }
+
+  getPhotoFromServer(e) {
+    this.photoProduct = e;
   }
 
   addToCart(product) {

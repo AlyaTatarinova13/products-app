@@ -7,7 +7,7 @@ export const products: ProductModel[] = [
     name: 'Phone XL',
     price: 799,
     count: null,
-    description: 'A large phone with one of the best screens',
+    description: 'Экран (6.4", Super AMOLED, 2340х1080) / Samsung Exynos 9611 (4 x 2.3 ГГц + 4 x 1.7 ГГц) / тройная основная камера: 48 Мп + 8 Мп + 5 Мп, фронтальная 20 Мп / RAM 4 ГБ / 64 ГБ встроенной памяти + microSD (до 512 ГБ) / 3G / LTE / GPS / поддержка 2х SIM-карт (Nano-SIM) / Android 10 (Q) / 6000 мА*ч',
     colorModels: [{color: AvailableColors.Yellow, count: 0}, {color: AvailableColors.Green, count: 3}]
   },
   {
@@ -44,7 +44,8 @@ export const products: ProductModel[] = [
     count: null,
     description: 'A great phone with one of the best cameras',
     colorModels: [{color: AvailableColors.White, count: 6}, {color: AvailableColors.Green, count: 3}, {
-      color: AvailableColors.Red, count: 5 }]
+      color: AvailableColors.Red, count: 5
+    }]
   },
   {
     id: 6,

@@ -35,28 +35,41 @@ app-top-bar, app-footer {
   align-content: center;
 }
 
-app-top-bar h1 {
-  color: white;
-  margin: 0;
-}
-
-app-product-list {
-  width: 100%;
+app-top-bar {
+  h1 {
+    color: white;
+    margin: 0;
+  }
 }
 
 router-outlet + * {
-  padding: 0 16px;
+  padding: 0;
 }
 
-app-product-details {
+app-product-details, app-product-list {
   height: 100%;
   width: 100%;
 }
 
-.container {
+app-top-bar {
+  flex: 0 0 auto;
+}
+
+app-footer {
+  flex: 0 0 auto;
+}
+
+app-sidebar {
+  flex: 1 0 auto;
+}
+
+.layout-container {
   display: flex;
+  width: 100%;
+  max-width: 1600px;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 /* Text */

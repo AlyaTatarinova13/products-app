@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Dimensions, ImageCroppedEvent, ImageTransform} from 'ngx-image-cropper';
 import {PhotoCropperService} from '../core/services/photo-cropper.service';
 
@@ -14,6 +14,7 @@ export class PhotoCropperComponent implements OnInit {
   rotation = 0;
   showCropper = false;
   transform: ImageTransform = {};
+  @Output() changePhoto = new EventEmitter<any>();
 
   constructor(private photocropperService: PhotoCropperService) {
   }
@@ -42,7 +43,8 @@ export class PhotoCropperComponent implements OnInit {
 
   savePhoto() {
     this.photocropperService.sendPhotoToServer(this.croppedImage);
-    console.log('Saving photo');
+    this.changePhoto.emit(this.croppedImage);
+    console.log('Photo was saved');
   }
 
   rotateLeft() {
