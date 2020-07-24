@@ -1,7 +1,10 @@
-<div *ngIf="productModel">
-  <h3>{{ productModel.name }}</h3>
-  <h4>{{ productModel.price | currency }}</h4>
-  <p>{{ productModel.description }}</p>
+<div class="main-container" fxLayout="row-reverse" fxLayoutAlign="space-around flex-start">
+  <div *ngIf="productModel">
+    <h3>{{ productModel.name }}</h3>
+    <h4>{{ productModel.price | currency }}</h4>
+    <p>{{ productModel.description }}</p>
+    <button (click)="addToCart(productModel)">Купить</button>
+  </div>
 
-  <button (click)="addToCart(productModel)">Купить</button>
+ <app-photo-cropper></app-photo-cropper>
 </div>

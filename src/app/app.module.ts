@@ -20,6 +20,7 @@ import {SidebarItemsService} from './core/services/sidebar-items.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HttpMockRequestInterceptor} from './core/interceptors/http-mock-request-interceptor';
 import {reducers} from './core/store';
+import { PhotoCropperComponent } from './photo-cropper/photo-cropper.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +35,9 @@ import {reducers} from './core/store';
     ReactiveFormsModule,
     ProductModuleModule,
     FlexLayoutModule,
-    // StoreModule.forRoot({ productList: fromProduct.reducer }),
     StoreModule.forRoot(reducers),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
     EffectsModule.forRoot([SidebarEffects, ProductEffects]),
-    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    // StoreRouterConnectingModule.forRoot(),
-
   ],
   providers: [SidebarItemsService,
     {
@@ -48,7 +45,9 @@ import {reducers} from './core/store';
       useClass:  HttpMockRequestInterceptor,
       multi: true,
     }],
-  exports: [],
+    exports: [
+
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

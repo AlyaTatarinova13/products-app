@@ -48,6 +48,11 @@ router-outlet + * {
   padding: 0 16px;
 }
 
+app-product-details {
+  height: 100%;
+  width: 100%;
+}
+
 .container {
   display: flex;
   flex-direction: row;

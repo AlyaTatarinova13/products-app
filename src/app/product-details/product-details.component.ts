@@ -1,9 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-
-// import {products} from '../core/fakeBackend/products';
 import {CartService} from '../core/services/cart.service';
 import {Subscription} from 'rxjs';
+import {products} from '../core/fakeBackend/products';
 
 @Component({
   selector: 'app-product-details',
@@ -13,16 +12,17 @@ import {Subscription} from 'rxjs';
 export class ProductDetailsComponent implements OnInit, OnDestroy {
   productModel;
   private model: Subscription;
-z
-  constructor(private route: ActivatedRoute,  private cartService: CartService) {
+
+  constructor(private route: ActivatedRoute, private cartService: CartService) {
   }
 
   ngOnInit(): void {
     this.model = this.route.paramMap.subscribe(
       (product) => {
-        // this.productModel = products[product.get('productId')];
+        this.productModel = products[product.get('productId')];
       }
     );
+    // console.log(this.productModel);
   }
 
   addToCart(product) {
